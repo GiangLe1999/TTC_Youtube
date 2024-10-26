@@ -33,13 +33,14 @@ def main(count):
         money = sb.get_text("#soduchinh")
         print(f"= Số dư đầu: {money} =")
         
-        for iteration in post_comments(sb, TUONGTACCHEO_URL, 2):
+        # for iteration in post_comments(sb, TUONGTACCHEO_URL, 2):
+        for iteration in sub_cheo(sb, SUBCHEOYOUTUBE_URL, MAX__SUB_YOUTUBE_ITERATIONS):
+
             
             # === Click All 'Nhận tiền' Buttons with 3-Second Interval ===
+            # click_nhan_tien_buttons(sb)
+            click_nhan_tien_sub_cheo_buttons(sb)
             click_nhan_tien_buttons(sb)
-            
-            # === Check if 'Nhận tiền' Buttons Were Found and Clicked ===
-            # (Đã được xử lý trong hàm click_nhan_tien_buttons)
             
             # === Optional: Wait Before Starting the Next Iteration ===
             sb.sleep(4)
