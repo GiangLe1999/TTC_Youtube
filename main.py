@@ -25,7 +25,7 @@ def main(count):
     with SB(uc=True) as sb:
         login_google(sb, GOOGLE_EMAIL[count], GOOGLE_PASSWORD[count])
 
-        sb.sleep(20)
+        sb.sleep(5)
             
         # === TuongTacCheo Login ===
         login_tuongtaccheo(sb, TUONGTACCHEO_USERNAME[count], "Giang19111999@")

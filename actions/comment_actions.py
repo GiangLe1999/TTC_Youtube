@@ -30,6 +30,23 @@ def post_comments(sb: SB, tuongtaccheo_url: str, max_iterations: int = 100):
                 sb.sleep(5)  # Brief pause to allow UI to update
                 sb.switch_to_window(1)
                 sb.sleep(5)
+
+                # Play video
+                try:
+                    sb.wait_for_element('button.ytp-play-button.ytp-button', timeout=5)
+                except Exception:
+                    skip_button = div.find_element(By.XPATH, './/div[contains(text(), "Skip")]')
+                    if skip_button:
+                        skip_button.click()
+                        sb.sleep(5)
+                    sb.driver.close()
+                    sb.switch_to_window(0)
+                    continue  # TODO: skip ads
+                
+                sb.click('button.ytp-play-button.ytp-button')
+
+                sb.sleep(10)
+
                 # === Scroll if Necessary ===
                 sb.execute_script("window.scrollBy(0, 300);")
                 
@@ -67,6 +84,6 @@ def post_comments(sb: SB, tuongtaccheo_url: str, max_iterations: int = 100):
                 continue  # Continue with the next div if there's an error
         
         # === Final Actions After Commenting ===
-        sb.sleep(30)
+        sb.sleep(45)
         
         yield iteration  # Yield control back to main for further actions
