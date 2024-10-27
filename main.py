@@ -6,16 +6,16 @@ from config.constants import (
     GOOGLE_PASSWORD,
     TUONGTACCHEO_USERNAME,
     TUONGTACCHEO_URL,
-    MAX_ITERATIONS,
-    SUBCHEOYOUTUBE_URL,
-    MAX__SUB_YOUTUBE_ITERATIONS
+    # MAX_ITERATIONS,
+    # SUBCHEOYOUTUBE_URL,
+    # MAX__SUB_YOUTUBE_ITERATIONS
 )
 from logins.google_login import login_google
 from logins.tuongtaccheo_login import login_tuongtaccheo
 from actions.comment_actions import post_comments
 from actions.nhan_tien_actions import click_nhan_tien_buttons
-from actions.nhan_tien_sub_cheo import click_nhan_tien_sub_cheo_buttons
-from actions.sub_cheo_youtube import sub_cheo
+# from actions.nhan_tien_sub_cheo import click_nhan_tien_sub_cheo_buttons
+# from actions.sub_cheo_youtube import sub_cheo
 
 import time
 
@@ -25,7 +25,7 @@ def main(count):
     with SB(uc=True) as sb:
         login_google(sb, GOOGLE_EMAIL[count], GOOGLE_PASSWORD[count])
 
-        sb.sleep(5)
+        sb.sleep(20)
             
         # === TuongTacCheo Login ===
         login_tuongtaccheo(sb, TUONGTACCHEO_USERNAME[count], "Giang19111999@")

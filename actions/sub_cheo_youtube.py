@@ -44,19 +44,10 @@ def sub_cheo(sb: SB, tuongtaccheo_url: str, max_iterations: int = 100):
                         sb.click('button.ytp-play-button.ytp-button')
                     except Exception:
                         # print("debug 6.1")
-                        skip_button = div.find_element(By.XPATH, './/div[contains(text(), "Skip")]')
-                        if skip_button:
-                            skip_button.click()
-                            sb.sleep(5)
-                        sb.driver.close()
-                        sb.switch_to_window(0)
-                        continue  # TODO: skip ads
+                        sb.click('button.ytp-skip-ad-button')
+                        sb.wait_for_element('button.ytp-play-button.ytp-button', timeout=5)
+                        sb.click('button.ytp-play-button.ytp-button')
                     
-                    # === Click the Placeholder to Activate Comment Box ===
-                    # print("debug 7")
-                    sb.click('button.ytp-play-button.ytp-button')
-
-                    # print("debug 8")
 
                     sb.sleep(15)
 

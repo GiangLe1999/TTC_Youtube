@@ -12,7 +12,7 @@ GOOGLE_PASSWORD = [
 
 TUONGTACCHEO_USERNAME = [
     "legiangbmt009", # 1
-    "legiangbmt0017", # 2
+    "legiangbmt017", # 2
 ]
 
 TUONGTACCHEO_URL = "https://tuongtaccheo.com/youtube/kiemtien/cmtcheo/"
