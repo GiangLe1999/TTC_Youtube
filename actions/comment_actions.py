@@ -37,26 +37,27 @@ def post_comments(sb: SB, tuongtaccheo_url: str, max_iterations: int = 100):
                 except Exception:
                     print("debug 2")
 
+                sb.sleep(5)
+
                 # === Scroll if Necessary ===
                 sb.execute_script("window.scrollBy(0, 300);")
+
+                sb.sleep(5)
                 
                 # === Check for 'yt-formatted-string#simplebox-placeholder' ===
                 try:
-                    sb.wait_for_element('yt-formatted-string#simplebox-placeholder', timeout=10)
+                    sb.wait_for_element('yt-formatted-string#simplebox-placeholder', timeout=30)
                 except Exception:
                     print("debug 3")
                     sb.driver.close()
                     sb.switch_to_window(0)
-                    sb.sleep(2)
-                    sb.click('button.btn.btn-success')
-                    sb.sleep(2)
                     continue  # Skip to the next div
                 
                 # === Click the Placeholder to Activate Comment Box ===
                 sb.click('yt-formatted-string#simplebox-placeholder')
                 
                 # === Type the Comment ===
-                sb.wait_for_element('div#contenteditable-root', timeout=15)
+                sb.wait_for_element('div#contenteditable-root', timeout=30)
                 sb.type('div#contenteditable-root', comment_text)
                 sb.sleep(5)  # Brief pause before submitting
                 
